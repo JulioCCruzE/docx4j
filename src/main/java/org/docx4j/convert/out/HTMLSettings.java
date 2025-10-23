@@ -61,7 +61,8 @@ public class HTMLSettings extends AbstractConversionSettings {
 	}
 	
 	/**
-	 * @see get/setStyleElementHandler
+	 * ...
+	 * Works like {@link #setStyleElementHandler(ConversionHTMLStyleElementHandler)}, but ...
 	 */
 	@Deprecated
 	public String getUserCSS() {
@@ -69,7 +70,7 @@ public class HTMLSettings extends AbstractConversionSettings {
 	}
 			
 	/**
-	 * @see get/setStyleElementHandler
+	 * Works like {@link #setStyleElementHandler(ConversionHTMLStyleElementHandler)}, but ...
 	 */
 	@Deprecated
 	public void setUserCSS(String val) {
@@ -77,7 +78,7 @@ public class HTMLSettings extends AbstractConversionSettings {
 	}
 
 	/**
-	 * @see get/setScriptElementHandler
+	 * Works like {@link #setScriptElementHandler(ConversionHTMLScriptElementHandler)}, but ...
 	 */
 	@Deprecated
 	public String getUserScript() {
@@ -85,7 +86,7 @@ public class HTMLSettings extends AbstractConversionSettings {
 	}
 
 	/**
-	 * @see get/setScriptElementHandler
+	 * Works like {@link #setScriptElementHandler(ConversionHTMLScriptElementHandler)}, but ...
 	 */
 	@Deprecated
 	public void setUserScript(String val) {
