@@ -56,15 +56,15 @@ import org.docx4j.openpackaging.contenttype.ContentTypes;
 import org.docx4j.openpackaging.exceptions.Docx4JException;
 import org.docx4j.openpackaging.exceptions.InvalidFormatException;
 import org.docx4j.openpackaging.packages.OpcPackage;
-import org.docx4j.openpackaging.packages.PresentationMLPackage;
-import org.docx4j.openpackaging.packages.SpreadsheetMLPackage;
+//import org.docx4j.openpackaging.packages.PresentationMLPackage;
+//import org.docx4j.openpackaging.packages.SpreadsheetMLPackage;
 import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
 import org.docx4j.openpackaging.parts.ExternalTarget;
 import org.docx4j.openpackaging.parts.Part;
 import org.docx4j.openpackaging.parts.PartName;
 import org.docx4j.openpackaging.parts.relationships.RelationshipsPart;
 import org.docx4j.relationships.Relationship;
-import org.pptx4j.pml.Presentation.SldSz;
+//import org.pptx4j.pml.Presentation.SldSz;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -216,12 +216,6 @@ public abstract class BinaryPartAbstractImage extends BinaryPart {
 		if (opcPackage instanceof WordprocessingMLPackage) {		
 			return PartName.generateUniqueName(sourcePart, proposedRelId, 
 					IMAGE_DIR_PREFIX, IMAGE_NAME_PREFIX, ext);
-		} else if (opcPackage instanceof PresentationMLPackage) {		
-			return PartName.generateUniqueName(sourcePart, proposedRelId, 
-					"/ppt/media/", IMAGE_NAME_PREFIX, ext);
-		} else if (opcPackage instanceof SpreadsheetMLPackage) {		
-			return PartName.generateUniqueName(sourcePart, proposedRelId, 
-					"/xl/media/", IMAGE_NAME_PREFIX, ext);
 		} else {
 			// Shouldn't happen
 			return PartName.generateUniqueName(sourcePart, proposedRelId, 
@@ -1264,9 +1258,6 @@ public abstract class BinaryPartAbstractImage extends BinaryPart {
 			
 		}
 		
-		public static CxCy scale(ImageInfo imageInfo, SldSz sldSz) {
-			return scale(imageInfo, sldSz.getCx(), sldSz.getCy());
-		}
 		
 		private static double toEmu(double widthPx, double dpi) {
 			return widthPx * EMU_RATIO / dpi;

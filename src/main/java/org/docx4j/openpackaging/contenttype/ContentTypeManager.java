@@ -72,8 +72,8 @@ import org.docx4j.openpackaging.exceptions.InvalidFormatException;
 import org.docx4j.openpackaging.exceptions.PartUnrecognisedException;
 import org.docx4j.openpackaging.packages.DefaultPackage;
 import org.docx4j.openpackaging.packages.OpcPackage;
-import org.docx4j.openpackaging.packages.PresentationMLPackage;
-import org.docx4j.openpackaging.packages.SpreadsheetMLPackage;
+//import org.docx4j.openpackaging.packages.PresentationMLPackage;
+//import org.docx4j.openpackaging.packages.SpreadsheetMLPackage;
 import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
 import org.docx4j.openpackaging.packages.WordprocessingMLTemplatePackage;
 import org.docx4j.openpackaging.parts.CustomXmlDataStoragePropertiesPart;
@@ -86,10 +86,10 @@ import org.docx4j.openpackaging.parts.PartName;
 import org.docx4j.openpackaging.parts.ThemePart;
 import org.docx4j.openpackaging.parts.VMLPart;
 import org.docx4j.openpackaging.parts.DrawingML.JaxbDmlPart;
-import org.docx4j.openpackaging.parts.PresentationML.FontDataPart;
-import org.docx4j.openpackaging.parts.PresentationML.JaxbPmlPart;
-import org.docx4j.openpackaging.parts.SpreadsheetML.JaxbSmlPart;
-import org.docx4j.openpackaging.parts.SpreadsheetML.WorkbookPart;
+//import org.docx4j.openpackaging.parts.PresentationML.FontDataPart;
+//import org.docx4j.openpackaging.parts.PresentationML.JaxbPmlPart;
+//import org.docx4j.openpackaging.parts.SpreadsheetML.JaxbSmlPart;
+//import org.docx4j.openpackaging.parts.SpreadsheetML.WorkbookPart;
 import org.docx4j.openpackaging.parts.WordprocessingML.AlternativeFormatInputPart;
 import org.docx4j.openpackaging.parts.WordprocessingML.BinaryPart;
 import org.docx4j.openpackaging.parts.WordprocessingML.CommentsExtendedPart;
@@ -427,32 +427,6 @@ public class ContentTypeManager  {
 			} catch (Exception e) {
 				return new BinaryPart( new PartName(partName));				
 			}
-		} else if (contentType.startsWith("application/vnd.openxmlformats-officedocument.presentation")
-				|| contentType.equals(ContentTypes.PRESENTATIONML_MACROENABLED)
-				|| contentType.equals(ContentTypes.PRESENTATIONML_TEMPLATE)
-				|| contentType.equals(ContentTypes.PRESENTATIONML_TEMPLATE_MACROENABLED)
-						) {
-			try {
-				return JaxbPmlPart.newPartForContentType(contentType, partName);
-			} catch (Exception e) {
-				return new BinaryPart( new PartName(partName));				
-			}
-		} else if (contentType.equals(ContentTypes.SPREADSHEETML_WORKBOOK)
-				|| contentType.equals(ContentTypes.SPREADSHEETML_WORKBOOK_MACROENABLED)
-				|| contentType.equals(ContentTypes.SPREADSHEETML_TEMPLATE)
-				|| contentType.equals(ContentTypes.SPREADSHEETML_TEMPLATE_MACROENABLED)) { 
-			try {
-				return new WorkbookPart(new PartName(partName));
-			} catch (Exception e) {
-				return new BinaryPart( new PartName(partName));				
-			}
-			
-		} else if (contentType.startsWith("application/vnd.openxmlformats-officedocument.spreadsheetml")) {
-			try {
-				return JaxbSmlPart.newPartForContentType(contentType, partName);
-			} catch (Exception e) {
-				return new BinaryPart( new PartName(partName));				
-			}
 		} else if (contentType.equals(ContentTypes.OFFICEDOCUMENT_THEME_OVERRIDE)) {
 			return new org.docx4j.openpackaging.parts.DrawingML.ThemeOverridePart(new PartName(partName));	
 			
@@ -509,10 +483,6 @@ public class ContentTypeManager  {
 			}
 			
 			return CreateDefaultXmlPartObject(partName );
-			
-		} else if (contentType.equals(ContentTypes.PRESENTATIONML_FONT_DATA)) {
-			
-			return new FontDataPart(new PartName(partName));
 			
 		} else {
 			
@@ -952,24 +922,6 @@ public class ContentTypeManager  {
 			p.setContentType(new ContentType(pkgContentType));			
 			return p;
 			
-		} else if (pkgContentType.equals(ContentTypes.PRESENTATIONML_MAIN) 
-				|| pkgContentType.equals(ContentTypes.PRESENTATIONML_TEMPLATE) 
-				|| pkgContentType.equals(ContentTypes.PRESENTATIONML_TEMPLATE_MACROENABLED) 
-				|| pkgContentType.equals(ContentTypes.PRESENTATIONML_MACROENABLED) 
-				|| pkgContentType.equals(ContentTypes.PRESENTATIONML_SLIDESHOW) ) {
-			log.info("Detected PresentationMLPackage package ");
-			p = new PresentationMLPackage(this);
-			p.setContentType(new ContentType(pkgContentType));			
-			return p;
-		} else if (pkgContentType.equals(ContentTypes.SPREADSHEETML_WORKBOOK) 
-				|| pkgContentType.equals(ContentTypes.SPREADSHEETML_WORKBOOK_MACROENABLED) 
-				|| pkgContentType.equals(ContentTypes.SPREADSHEETML_TEMPLATE) 
-				|| pkgContentType.equals(ContentTypes.SPREADSHEETML_TEMPLATE_MACROENABLED) ) {
-			//  "xlam", "xlsb" ?
-			log.info("Detected SpreadhseetMLPackage package ");
-			p = new SpreadsheetMLPackage(this);
-			p.setContentType(new ContentType(pkgContentType));			
-			return p;			
 		} else if (pkgContentType.equals(ContentTypes.DRAWINGML_DIAGRAM_LAYOUT) ) {
 			log.info("Detected Glox file ");
 			p = new GloxPackage(this);
