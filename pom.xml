@@ -8,9 +8,9 @@
     <version>7</version>
   </parent>
   
-	<groupId>org.docx4j</groupId>
+	<groupId>jace.docx4j</groupId>
 	<artifactId>docx4j</artifactId>
-	<version>6.1.2</version>
+	<version>6.1.4</version>
 	<packaging>jar</packaging>
 	<name>docx4j</name>
 	
@@ -97,8 +97,8 @@
 						mirrors this in Eclipse's compiler settings, and Eclipse then complains about
 						the @Override annotations :-( So you must manually change the Eclipse compiler
 						setting back to 1.6. -->
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.8</source>
+					<target>1.8</target>
  					<verbose>false</verbose>
 					<!-- maxmemory>512m</maxmemory On Linux, use: MAVEN_OPTS="-Xmx512m" mvn install -->
 					<!-- try to help maven to find package com.sun.xml.internal.bind.marshaller:
@@ -122,7 +122,7 @@
 	            <configuration>
 	              <rules>
 	                <enforceBytecodeVersion>
-	                  <maxJdkVersion>1.6</maxJdkVersion>
+	                  <maxJdkVersion>1.8</maxJdkVersion>
 	                  <excludes>
 	                    <exclude>org.mindrot:jbcrypt</exclude>
 	                  </excludes>
@@ -680,7 +680,11 @@
 			mvn deploy:deploy-file -f wagon-svn-pom.xml -Dfile=dist/docx4j.jar -DpomFile=pom.xml  -Dpackaging=jar -DrepositoryId=docx4j -Durl=svn:http://dev.plutext.org/svn/docx4j/trunk/docx4j/m2
 
 		-->
-		
+		<dependency>
+   				<groupId>javax.xml.bind</groupId>
+   				<artifactId>jaxb-api</artifactId>
+   				<version>2.1</version>
+   			</dependency>
 
 	</dependencies>
 
