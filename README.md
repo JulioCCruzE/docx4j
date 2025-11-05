@@ -2,7 +2,7 @@
 
 I made this branch in order to set new Namespaces in recent Office versions.
 The base code come from 6.1.2 version and the new namespaces has taken from 8.3.15 version.
-Read documentacion.md for more information.
+Read [6.1.4 notes](notes.md) for more information.
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.docx4j/docx4j/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.docx4j/docx4j)
 
