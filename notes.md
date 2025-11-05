@@ -57,10 +57,16 @@ In a terminal execute the next code to get the jar file
 mvn clean install -DskipTests
 ```
 
-With `DskipTests` flag I skip test. Unfortunately test always return error when compile
+If you don´t want a local installation, you can use this command.
+
+```bash
+mvn clean package -DskipTests
+```
+
+With `DskipTests` flag I skip test. Unfortunately, test always return error when compile
 without this flag.
 
 > [!IMPORTANT]
 > When I imported this project to Eclipse IDE appear a lot of errors.
 > I solved all of them, but when I want to generate the jar file, compilation always fail.
-> For this reason I recommend to not make more changes or try to solve this weird errors.
+> For this reason I recommend **to not** make more changes or try to solve this weird errors.
