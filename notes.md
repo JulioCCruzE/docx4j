@@ -14,7 +14,7 @@ compatibly with my spring boot project.
 
 ## Update pom.xml
 
-In this file only change the java compiler from 1.6 to 1.8
+In this file only change the maven compiler plugin from 1.6 to 1.8
 
 ```xml
 <!-- snipet -->
@@ -40,3 +40,13 @@ In this file only change the java compiler from 1.6 to 1.8
       </plugin>
 <!-- snipet -->
 ```
+
+## Add Namespaces
+
+I just replace the file [NamespacePrefixMappings.java](src/main/java/org/docx4j/jaxb/NamespacePrefixMappings.java)
+with the same you can find in version 8.3.15
+
+> [!NOTE]
+> I don´t have to do any changes to this code.
+
+## Get the jar file
